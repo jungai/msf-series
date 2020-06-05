@@ -3,6 +3,7 @@ const singleSpaDefaults = require("webpack-config-single-spa-ts");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const path = require('path');
+const fs = require('fs');
 
 module.exports = (webpackConfigEnv) => {
   const defaultConfig = singleSpaDefaults({
@@ -30,6 +31,8 @@ module.exports = (webpackConfigEnv) => {
       },
       disableHostCheck: true,
       historyApiFallback: true,
+      http2: true,
+      https: true,
     },
     plugins: [
       new HtmlWebpackPlugin({
